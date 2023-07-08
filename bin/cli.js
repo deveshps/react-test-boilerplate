@@ -14,7 +14,7 @@ const runCommand = command => {
 
 const repoName = process.argv[2];
 const gitCheckoutCommand = `git clone --depth 1 https://github.com/deveshps/react-test-boilerplate.git ${repoName}`;
-// const gitCheckoutCommand2 = `git clone --depth 1 https://github.com/deveshps/react-test-boilerplate2.git ${repoName}`;
+const gitCheckoutCommand2 = `git clone --depth 1 https://github.com/deveshps/react-test-boilerplate2.git ${repoName}`;
 
 
 const installDepsCommand = `cd ${repoName} && npm install`;
@@ -22,10 +22,10 @@ const installDepsCommand = `cd ${repoName} && npm install`;
 
 console.log("Cloning the repository with name ",repoName);
 const checkOut = runCommand(gitCheckoutCommand);
-// const checkOut2 = runCommand(gitCheckoutCommand2);
+const checkOut2 = runCommand(gitCheckoutCommand2);
 
 
-if(!checkOut) process.exit(1); // (code : -1)
+if(!checkOut || !checkOut2) process.exit(1); // (code : -1)
 // if(!checkOut2) process.exit(1); // (code : -1)
 
 
