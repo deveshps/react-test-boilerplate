@@ -13,11 +13,16 @@ const runCommand = command => {
 }
 
 const repoName = process.argv[2];
+const secondRepoName = process?.argv[3] || undefined;
+
 const gitCheckoutCommand = `git clone --depth 1 https://github.com/deveshps/react-test-boilerplate.git ${repoName}`;
-const gitCheckoutCommand2 = `git clone --depth 1 https://github.com/deveshps/react-test-boilerplate2.git ${repoName}`;
+const gitCheckoutCommand2 = `git clone --depth 1 https://github.com/deveshps/react-test-boilerplate2.git ${secondRepoName}`;
 
 
 const installDepsCommand = `cd ${repoName} && npm install`;
+
+const installDepsCommand2 = `cd ${secondRepoName ? secondRepoName : "react-test-boilerplate2"} && npm install`;
+
 
 
 console.log("Cloning the repository with name ",repoName);
@@ -32,10 +37,13 @@ if(!checkOut || !checkOut2) process.exit(1); // (code : -1)
 console.log("Installing dependencies for ",repoName);
 
 const installedDeps = runCommand(installDepsCommand);
+const installedDeps2 = runCommand(installDepsCommand2)
 
-if(!installDepsCommand) process.exit(1) // (code : -1)
+if(!installDepsCommand || !installDepsCommand2) process.exit(1) // (code : -1)
 
 console.log("Congratulations! You are ready. Follow the following commands to start");
 console.log(`cd ${repoName} && npm start`);
+console.log(`cd ${secondRepoName ? secondRepoName : "react-test-boilerplate2"} && npm start`);
+
 
 //npm publish --access=public
