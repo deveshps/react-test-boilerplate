@@ -1,5 +1,5 @@
 {
-  "name": "react-test-boiler-plates-app",
+  "name": "react-test-boiler-plates-apps",
   "version": "0.1.0",
     "bin": "./bin/cli.js",
   "dependencies": {
